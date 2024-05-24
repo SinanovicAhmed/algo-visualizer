@@ -1,9 +1,9 @@
 import AlgoDescription from "../components/AlgoDescription";
 import SortingDisplay from "../components/SortingDisplay";
-import { useSortingAlgorithmContext } from "../context/algorithmSelectionContext";
+import { useAlgorithmContext } from "../context/algorithmSelectionContext";
 
 const SortingPage = () => {
-  const { algorithm } = useSortingAlgorithmContext();
+  const { algorithm } = useAlgorithmContext();
   return (
     <>
       <SortingDisplay algorithm={algorithm} />

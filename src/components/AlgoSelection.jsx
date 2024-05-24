@@ -1,22 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import { useSortingAlgorithmContext } from "../context/algorithmSelectionContext";
+import { useAlgorithmContext } from "../context/algorithmSelectionContext";
 
 const AlgoSelection = () => {
-  const { algorithm, setAlgorithm, algorithmType, setAlgorithmType } = useSortingAlgorithmContext();
-  const navigate = useNavigate();
-
-  const handleAlgorithmChange = (e) => {
-    setAlgorithm(e.target.value);
-  };
-
-  const handleAlgorithmTypeChange = (e) => {
-    setAlgorithmType(e.target.value);
-    if (e.target.value === "sorting") {
-      navigate("/sorting");
-    } else if (e.target.value === "searching") {
-      navigate("/searching");
-    }
-  };
+  const { algorithm, setAlgorithm, algorithmType, handleAlgorithmTypeChange } = useAlgorithmContext();
 
   return (
     <div className="flex flex-wrap justify-end gap-1 py-1">
@@ -24,7 +9,7 @@ const AlgoSelection = () => {
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
         id="type-algorithm"
         value={algorithmType}
-        onChange={handleAlgorithmTypeChange}
+        onChange={(e) => handleAlgorithmTypeChange(e.target.value)}
       >
         <option value="sorting">Sorting Algos</option>
         <option value="searching">Searching Algos</option>
@@ -34,7 +19,7 @@ const AlgoSelection = () => {
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
           id="algorithm"
           value={algorithm}
-          onChange={handleAlgorithmChange}
+          onChange={(e) => setAlgorithm(e.target.value)}
         >
           <option value="bubbleSort">Bubble Sort</option>
           <option value="selectionSort">Selection Sort</option>
@@ -45,7 +30,7 @@ const AlgoSelection = () => {
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
           id="algorithm"
           value={algorithm}
-          onChange={handleAlgorithmChange}
+          onChange={(e) => setAlgorithm(e.target.value)}
         >
           <option value="linearSearch">Linear Search</option>
           <option value="binarySearch">Binary Search</option>

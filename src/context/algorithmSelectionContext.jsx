@@ -1,29 +1,33 @@
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const SortingAlgorithmContext = createContext();
+const AlgorithmContext = createContext();
 
-export const SortingAlgorithmProvider = ({ children }) => {
+export const AlgorithmProvider = ({ children }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [algorithm, setAlgorithm] = useState("bubbleSort");
   const [algorithmType, setAlgorithmType] = useState("sorting");
 
   useEffect(() => {
     const { pathname } = location;
 
-    if (pathname === "/searching") {
-      setAlgorithmType("searching");
-    } else {
-      setAlgorithmType("sorting");
-    }
+    setAlgorithmType(pathname === "/searching" ? "searching" : "sorting");
+    setAlgorithm(pathname === "/sorting" ? "bubbleSort" : "linearSearch");
   }, [location]);
 
+  const handleAlgorithmTypeChange = (algorithmType) => {
+    setAlgorithmType(algorithmType);
+    setAlgorithm(algorithmType === "sorting" ? "bubbleSort" : "linearSearch");
+    navigate(algorithmType === "sorting" ? "/sorting" : "/searching");
+  };
+
   return (
-    <SortingAlgorithmContext.Provider value={{ algorithm, setAlgorithm, algorithmType, setAlgorithmType }}>
+    <AlgorithmContext.Provider value={{ algorithm, setAlgorithm, algorithmType, handleAlgorithmTypeChange }}>
       {children}
-    </SortingAlgorithmContext.Provider>
+    </AlgorithmContext.Provider>
   );
 };
 
-export const useSortingAlgorithmContext = () => useContext(SortingAlgorithmContext);
+export const useAlgorithmContext = () => useContext(AlgorithmContext);

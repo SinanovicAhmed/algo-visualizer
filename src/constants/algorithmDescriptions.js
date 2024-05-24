@@ -1,4 +1,5 @@
 export const algorithmDescriptions = {
+  //sort
   bubbleSort: {
     header: "Bubble Sort",
     description:
@@ -50,6 +51,25 @@ export const algorithmDescriptions = {
       best: "O(n^2) - Regardless of input.",
       average: "O(n^2) - Regardless of input.",
       worst: "O(n^2) - Regardless of input.",
+    },
+    space_complexity: "O(1)",
+  },
+
+  //search
+  linearSearch: {
+    header: "Linear Search",
+    description:
+      "Linear search is a simple search algorithm that sequentially checks each element in a list or array until the target element is found or the entire list has been traversed. It compares each element of the list with the target element to determine if they are equal.",
+    steps: [
+      "Start from the beginning of the list.",
+      "Compare the target element with each element of the list sequentially.",
+      "If the target element matches an element in the list, return the index of that element.",
+      "If the target element is not found after checking all elements, return a special value (e.g., -1) to indicate that the element is not in the list.",
+    ],
+    time_complexity: {
+      best: "O(1) - When the target element is found at the beginning of the list.",
+      average: "O(n) - When the target element is randomly located in the list.",
+      worst: "O(n) - When the target element is at the end of the list or not present in the list.",
     },
     space_complexity: "O(1)",
   },
