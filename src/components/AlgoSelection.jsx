@@ -34,6 +34,7 @@ const AlgoSelection = () => {
         >
           <option value="linearSearch">Linear Search</option>
           <option value="binarySearch">Binary Search</option>
+          <option value="ternarySearch">Ternary Search</option>
         </select>
       )}
     </div>

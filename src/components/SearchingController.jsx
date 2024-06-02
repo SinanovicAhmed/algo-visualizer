@@ -4,11 +4,13 @@ const SearchingController = ({
   target,
   setTarget,
   isSearching,
+  isNumberFound,
   startSearching,
   setSpeed,
   speed,
   setArraySize,
   arraySize,
+  generateNewArray,
 }) => {
   return (
     <div className="w-full h-15 flex justify-center gap-4 my-5">
@@ -62,10 +64,18 @@ const SearchingController = ({
 
       <button
         className="px-2 py-1 bg-blue-600 text-white text-sm rounded-lg disabled:grayscale"
-        onClick={startSearching}
-        disabled={isSearching || target == 0}
+        onClick={generateNewArray}
+        disabled={isSearching}
       >
-        {isSearching ? "Searching..." : "Search"}
+        Reset array
+      </button>
+
+      <button
+        className="px-2 py-1 bg-blue-600 text-white text-sm rounded-lg disabled:grayscale"
+        onClick={startSearching}
+        disabled={isSearching || target == 0 || isNumberFound}
+      >
+        Search
       </button>
     </div>
   );

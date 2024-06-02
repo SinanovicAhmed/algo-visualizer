@@ -73,4 +73,47 @@ export const algorithmDescriptions = {
     },
     space_complexity: "O(1)",
   },
+  binarySearch: {
+    header: "Binary Search",
+    description:
+      "Binary search is an efficient search algorithm that works on sorted lists or arrays. It repeatedly divides the search interval in half, comparing the target element to the middle element of the interval. Depending on the comparison, it either narrows down the search to the left or right half of the interval.",
+    steps: [
+      "Start with the entire list as the search interval.",
+      "Calculate the middle index of the current search interval.",
+      "Compare the target element with the middle element of the interval.",
+      "If the target element is equal to the middle element, return the index of the middle element.",
+      "If the target element is less than the middle element, narrow the search interval to the left half.",
+      "If the target element is greater than the middle element, narrow the search interval to the right half.",
+      "Repeat steps 2-6 until the target element is found or the search interval is empty.",
+      "If the search interval is empty and the target element has not been found, return a special value (e.g., -1) to indicate that the element is not in the list.",
+    ],
+    time_complexity: {
+      best: "O(1) - When the target element is at the middle of the list.",
+      average: "O(log n) - When the search interval is repeatedly halved.",
+      worst: "O(log n) - When the search interval is repeatedly halved.",
+    },
+    space_complexity: "O(1)",
+  },
+  ternarySearch: {
+    header: "Ternary Search",
+    description:
+      "Ternary search is a divide-and-conquer algorithm that is used to find the position of a target value within a sorted array. It is an extension of the binary search algorithm, dividing the search space into three parts instead of two. Ternary search works by recursively dividing the search interval into three parts and comparing the target value with the elements at two partition points. Depending on the comparison, it narrows down the search to one-third of the interval.",
+    steps: [
+      "Start with the entire sorted list as the search interval.",
+      "Calculate two midpoints (mid1 and mid2) dividing the search interval into three equal parts.",
+      "Compare the target element with the elements at mid1 and mid2.",
+      "If the target element is equal to any of the midpoints, return the index of the midpoint.",
+      "If the target element is less than the element at mid1, narrow the search interval to the first third.",
+      "If the target element is greater than the element at mid2, narrow the search interval to the last third.",
+      "If the target element is between the elements at mid1 and mid2, narrow the search interval to the middle third.",
+      "Repeat steps 2-7 until the target element is found or the search interval is empty.",
+      "If the search interval is empty and the target element has not been found, return a special value (e.g., -1) to indicate that the element is not in the list.",
+    ],
+    time_complexity: {
+      best: "O(1) - When the target element is at one of the midpoints.",
+      average: "O(log n) - When the search interval is repeatedly divided into three parts.",
+      worst: "O(log n) - When the search interval is repeatedly divided into three parts.",
+    },
+    space_complexity: "O(1)",
+  },
 };

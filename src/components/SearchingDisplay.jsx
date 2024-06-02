@@ -8,13 +8,23 @@ const SearchingDisplay = ({ algorithm }) => {
   const [speed, setSpeed] = useState(800);
   const [arraySize, setArraySize] = useState(25);
 
-  const { array, target, setTarget, isSearching, isNumberFound, checkedValue, startSearching, generateNewArray } =
-    useSearchingAlgorithm(algorithm, speed, arraySize);
+  const {
+    array,
+    discardedPartArray,
+    target,
+    setTarget,
+    isSearching,
+    isNumberFound,
+    checkedValue,
+    startSearching,
+    generateNewArray,
+  } = useSearchingAlgorithm(algorithm, speed, arraySize);
 
   const controllerProps = {
     target,
     setTarget,
     isSearching,
+    isNumberFound,
     startSearching,
     setSpeed,
     speed,
@@ -32,7 +42,8 @@ const SearchingDisplay = ({ algorithm }) => {
             <Element
               key={number}
               isNumberFound={isNumberFound && checkedValue == index}
-              isCompared={checkedValue == index}
+              isCompared={checkedValue.includes(index)}
+              isDiscarded={discardedPartArray.includes(index)}
               number={number}
             />
           );

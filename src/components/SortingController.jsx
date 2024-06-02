@@ -1,6 +1,15 @@
 /* eslint-disable react/prop-types */
 
-const SortingController = ({ speed, setSpeed, arraySize, setArraySize, isSorting, startSorting }) => {
+const SortingController = ({
+  speed,
+  setSpeed,
+  arraySize,
+  setArraySize,
+  isSorting,
+  isSorted,
+  startSorting,
+  generateNewArray,
+}) => {
   return (
     <div className="w-full h-15 flex justify-center gap-4 my-5">
       <div className="flex flex-col justify-between">
@@ -37,10 +46,18 @@ const SortingController = ({ speed, setSpeed, arraySize, setArraySize, isSorting
 
       <button
         className="px-2 py-1 bg-blue-600 text-white text-sm rounded-lg disabled:grayscale"
-        onClick={startSorting}
+        onClick={generateNewArray}
         disabled={isSorting}
       >
-        {isSorting ? "Sorting..." : "Sort"}
+        Generate array
+      </button>
+
+      <button
+        className="px-2 py-1 bg-blue-600 text-white text-sm rounded-lg disabled:grayscale"
+        onClick={startSorting}
+        disabled={isSorting || isSorted}
+      >
+        Sort
       </button>
     </div>
   );

@@ -14,17 +14,20 @@ const SortingDisplay = ({ algorithm }) => {
     arraySize
   );
 
+  const controllerProps = {
+    isSorting,
+    startSorting,
+    setSpeed,
+    speed,
+    setArraySize,
+    arraySize,
+    generateNewArray,
+    isSorted,
+  };
+
   return (
     <div className="w-full min-h-[600px] flex flex-col items-center">
-      <SortingController
-        isSorting={isSorting}
-        startSorting={startSorting}
-        setSpeed={setSpeed}
-        speed={speed}
-        setArraySize={setArraySize}
-        arraySize={arraySize}
-        generateNewArray={generateNewArray}
-      />
+      <SortingController {...controllerProps} />
       <div className="flex w-full gap-[1px] md:gap-1 justify-center items-start mb-10 px-2 md:px-5">
         {array.map((number, index) => {
           return <Bar key={number} isSorted={isSorted} isCompared={comparedValues.includes(index)} size={number}></Bar>;
