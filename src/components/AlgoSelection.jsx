@@ -6,35 +6,51 @@ const AlgoSelection = () => {
   return (
     <div className="flex flex-wrap justify-end gap-1 py-1">
       <select
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
+        className="bg-transparent border border-gray-300 text-white text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block"
         id="type-algorithm"
         value={algorithmType}
         onChange={(e) => handleAlgorithmTypeChange(e.target.value)}
       >
-        <option value="sorting">Sorting Algos</option>
-        <option value="searching">Searching Algos</option>
+        <option value="sorting" className="text-black">
+          Sorting Algos
+        </option>
+        <option value="searching" className="text-black">
+          Searching Algos
+        </option>
       </select>
       {algorithmType == "sorting" ? (
         <select
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
+          className="bg-transparent border border-gray-300 text-white text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block"
           id="algorithm"
           value={algorithm}
           onChange={(e) => setAlgorithm(e.target.value)}
         >
-          <option value="bubbleSort">Bubble Sort</option>
-          <option value="selectionSort">Selection Sort</option>
-          <option value="insertionSort">Insertion Sort</option>
+          <option value="bubbleSort" className="text-black">
+            Bubble Sort
+          </option>
+          <option value="selectionSort" className="text-black">
+            Selection Sort
+          </option>
+          <option value="insertionSort" className="text-black">
+            Insertion Sort
+          </option>
         </select>
       ) : (
         <select
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
+          className="bg-transparent border border-gray-300 text-white text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block"
           id="algorithm"
           value={algorithm}
           onChange={(e) => setAlgorithm(e.target.value)}
         >
-          <option value="linearSearch">Linear Search</option>
-          <option value="binarySearch">Binary Search</option>
-          <option value="ternarySearch">Ternary Search</option>
+          <option value="linearSearch" className="text-black">
+            Linear Search
+          </option>
+          <option value="binarySearch" className="text-black">
+            Binary Search
+          </option>
+          <option value="ternarySearch" className="text-black">
+            Ternary Search
+          </option>
         </select>
       )}
     </div>

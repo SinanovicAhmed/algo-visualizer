@@ -8,7 +8,9 @@ const Element = ({ isNumberFound, isDiscarded, isCompared, number }) => {
     return "bg-blue-500";
   };
 
-  return <div className={`${getBarColor()} w-10 h-10 text-white flex justify-center items-center`}>{number}</div>;
+  return (
+    <div className={`${getBarColor()} w-10 h-10 text-white flex justify-center items-center text-sm`}>{number}</div>
+  );
 };
 
 export default Element;
